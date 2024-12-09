@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macOS-latest, windows-latest]
-        nim: [stable, 1.6.18]
+        nim: [stable, 1.6.18, 2.0.12]
     steps:
     - uses: actions/checkout@v2
       with:
