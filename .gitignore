@@ -8,5 +8,5 @@ leveldbtool
 *.html
 *.css
 build
-
+nimbledeps
 *.exe
