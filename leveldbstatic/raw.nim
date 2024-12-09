@@ -29,7 +29,7 @@ proc buildLevelDb() =
   discard gorge "rm -rf " & buildDir
   discard gorge "mkdir -p " & buildDir
 
-  let cmd = "cmake -S \"" & LevelDbDir & "\" -B \"" & buildDir & "\" " & LevelDbCmakeFlags
+  let cmd = "cmake -S \"" & LevelDbDir & "\" -B \"" & buildDir & "\" " & LevelDbCMakeFlags
   echo "\nBuilding LevelDB: " & cmd
   let (output, exitCode) = gorgeEx cmd
   if exitCode != 0:
@@ -50,9 +50,9 @@ when defined(posix):
   {.compile: envPosix.}
   {.passc: "-DLEVELDB_PLATFORM_POSIX".}
 
-# Generated @ 2024-05-22T10:00:37+02:00
+# Generated @ 2024-12-09T16:35:09+01:00
 # Command line:
-#   /home/ben/.nimble/pkgs/nimterop-0.6.13/nimterop/toast --compile=./vendor/db/log_writer.cc --compile=./vendor/db/db_impl.cc --compile=./vendor/db/db_iter.cc --compile=./vendor/db/dumpfile.cc --compile=./vendor/db/c.cc --compile=./vendor/db/builder.cc --compile=./vendor/db/filename.cc --compile=./vendor/db/write_batch.cc --compile=./vendor/db/table_cache.cc --compile=./vendor/db/version_edit.cc --compile=./vendor/db/dbformat.cc --compile=./vendor/db/log_reader.cc --compile=./vendor/db/memtable.cc --compile=./vendor/db/version_set.cc --compile=./vendor/db/repair.cc --compile=./vendor/table/block.cc --compile=./vendor/table/two_level_iterator.cc --compile=./vendor/table/table_builder.cc --compile=./vendor/table/iterator.cc --compile=./vendor/table/block_builder.cc --compile=./vendor/table/merger.cc --compile=./vendor/table/format.cc --compile=./vendor/table/filter_block.cc --compile=./vendor/table/table.cc --compile=./vendor/util/hash.cc --compile=./vendor/util/arena.cc --compile=./vendor/util/options.cc --compile=./vendor/util/histogram.cc --compile=./vendor/util/crc32c.cc --compile=./vendor/util/env.cc --compile=./vendor/util/filter_policy.cc --compile=./vendor/util/bloom.cc --compile=./vendor/util/logging.cc --compile=./vendor/util/coding.cc --compile=./vendor/util/status.cc --compile=./vendor/util/cache.cc --compile=./vendor/util/comparator.cc --compile=./vendor/helpers/memenv/memenv.cc --pnim --preprocess --noHeader --includeDirs=./vendor --includeDirs=./vendor/helpers --includeDirs=./vendor/helpers/memenv --includeDirs=./vendor/port --includeDirs=./vendor/include ./vendor/include/leveldb/c.h
+#   /home/arnaud/.nimble/pkgs2/nimterop-0.6.13-a93246b2ad5531db11e51de7b2d188c42d95576a/nimterop/toast --compile=./vendor/util/bloom.cc --compile=./vendor/util/arena.cc --compile=./vendor/util/env.cc --compile=./vendor/util/filter_policy.cc --compile=./vendor/util/histogram.cc --compile=./vendor/util/hash.cc --compile=./vendor/util/comparator.cc --compile=./vendor/util/options.cc --compile=./vendor/util/logging.cc --compile=./vendor/util/status.cc --compile=./vendor/util/coding.cc --compile=./vendor/util/cache.cc --compile=./vendor/util/crc32c.cc --compile=./vendor/table/table.cc --compile=./vendor/table/format.cc --compile=./vendor/table/table_builder.cc --compile=./vendor/table/block_builder.cc --compile=./vendor/table/merger.cc --compile=./vendor/table/block.cc --compile=./vendor/table/filter_block.cc --compile=./vendor/table/iterator.cc --compile=./vendor/table/two_level_iterator.cc --compile=./vendor/helpers/memenv/memenv.cc --compile=./vendor/db/filename.cc --compile=./vendor/db/dbformat.cc --compile=./vendor/db/c.cc --compile=./vendor/db/memtable.cc --compile=./vendor/db/version_set.cc --compile=./vendor/db/repair.cc --compile=./vendor/db/builder.cc --compile=./vendor/db/write_batch.cc --compile=./vendor/db/version_edit.cc --compile=./vendor/db/dumpfile.cc --compile=./vendor/db/db_impl.cc --compile=./vendor/db/log_reader.cc --compile=./vendor/db/table_cache.cc --compile=./vendor/db/db_iter.cc --compile=./vendor/db/log_writer.cc --pnim --preprocess --noHeader --includeDirs=./vendor --includeDirs=./vendor/helpers --includeDirs=./vendor/helpers/memenv --includeDirs=./vendor/port --includeDirs=./vendor/include ./vendor/include/leveldb/c.h
 
 {.push hint[ConvFromXtoItselfNotNeeded]: off.}
 import macros
@@ -105,44 +105,44 @@ macro defineEnum(typ: untyped): untyped =
 {.passc: "-I" & root & "/vendor/helpers/memenv".}
 {.passc: "-I" & root & "/vendor/port".}
 {.passc: "-I" & root & "/vendor/include".}
-{.compile: root & "/vendor/db/log_writer.cc".}
-{.compile: root & "/vendor/db/db_impl.cc".}
-{.compile: root & "/vendor/db/db_iter.cc".}
-{.compile: root & "/vendor/db/dumpfile.cc".}
-{.compile: root & "/vendor/db/c.cc".}
-{.compile: root & "/vendor/db/builder.cc".}
+{.compile: root & "/vendor/util/bloom.cc".}
+{.compile: root & "/vendor/util/arena.cc".}
+{.compile: root & "/vendor/util/env.cc".}
+{.compile: root & "/vendor/util/filter_policy.cc".}
+{.compile: root & "/vendor/util/histogram.cc".}
+{.compile: root & "/vendor/util/hash.cc".}
+{.compile: root & "/vendor/util/comparator.cc".}
+{.compile: root & "/vendor/util/options.cc".}
+{.compile: root & "/vendor/util/logging.cc".}
+{.compile: root & "/vendor/util/status.cc".}
+{.compile: root & "/vendor/util/coding.cc".}
+{.compile: root & "/vendor/util/cache.cc".}
+{.compile: root & "/vendor/util/crc32c.cc".}
+{.compile: root & "/vendor/table/table.cc".}
+{.compile: root & "/vendor/table/format.cc".}
+{.compile: root & "/vendor/table/table_builder.cc".}
+{.compile: root & "/vendor/table/block_builder.cc".}
+{.compile: root & "/vendor/table/merger.cc".}
+{.compile: root & "/vendor/table/block.cc".}
+{.compile: root & "/vendor/table/filter_block.cc".}
+{.compile: root & "/vendor/table/iterator.cc".}
+{.compile: root & "/vendor/table/two_level_iterator.cc".}
+{.compile: root & "/vendor/helpers/memenv/memenv.cc".}
 {.compile: root & "/vendor/db/filename.cc".}
-{.compile: root & "/vendor/db/write_batch.cc".}
-{.compile: root & "/vendor/db/table_cache.cc".}
-{.compile: root & "/vendor/db/version_edit.cc".}
 {.compile: root & "/vendor/db/dbformat.cc".}
-{.compile: root & "/vendor/db/log_reader.cc".}
+{.compile: root & "/vendor/db/c.cc".}
 {.compile: root & "/vendor/db/memtable.cc".}
 {.compile: root & "/vendor/db/version_set.cc".}
 {.compile: root & "/vendor/db/repair.cc".}
-{.compile: root & "/vendor/table/block.cc".}
-{.compile: root & "/vendor/table/two_level_iterator.cc".}
-{.compile: root & "/vendor/table/table_builder.cc".}
-{.compile: root & "/vendor/table/iterator.cc".}
-{.compile: root & "/vendor/table/block_builder.cc".}
-{.compile: root & "/vendor/table/merger.cc".}
-{.compile: root & "/vendor/table/format.cc".}
-{.compile: root & "/vendor/table/filter_block.cc".}
-{.compile: root & "/vendor/table/table.cc".}
-{.compile: root & "/vendor/util/hash.cc".}
-{.compile: root & "/vendor/util/arena.cc".}
-{.compile: root & "/vendor/util/options.cc".}
-{.compile: root & "/vendor/util/histogram.cc".}
-{.compile: root & "/vendor/util/crc32c.cc".}
-{.compile: root & "/vendor/util/env.cc".}
-{.compile: root & "/vendor/util/filter_policy.cc".}
-{.compile: root & "/vendor/util/bloom.cc".}
-{.compile: root & "/vendor/util/logging.cc".}
-{.compile: root & "/vendor/util/coding.cc".}
-{.compile: root & "/vendor/util/status.cc".}
-{.compile: root & "/vendor/util/cache.cc".}
-{.compile: root & "/vendor/util/comparator.cc".}
-{.compile: root & "/vendor/helpers/memenv/memenv.cc".}
+{.compile: root & "/vendor/db/builder.cc".}
+{.compile: root & "/vendor/db/write_batch.cc".}
+{.compile: root & "/vendor/db/version_edit.cc".}
+{.compile: root & "/vendor/db/dumpfile.cc".}
+{.compile: root & "/vendor/db/db_impl.cc".}
+{.compile: root & "/vendor/db/log_reader.cc".}
+{.compile: root & "/vendor/db/table_cache.cc".}
+{.compile: root & "/vendor/db/db_iter.cc".}
+{.compile: root & "/vendor/db/log_writer.cc".}
 defineEnum(Enum_ch1)
 const
   leveldb_no_compression* = (0).cint

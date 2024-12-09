@@ -29,7 +29,7 @@ proc buildLevelDb() =
   discard gorge "rm -rf " & buildDir
   discard gorge "mkdir -p " & buildDir
 
-  let cmd = "cmake -S \"" & LevelDbDir & "\" -B \"" & buildDir & "\" " & LevelDbCmakeFlags
+  let cmd = "cmake -S \"" & LevelDbDir & "\" -B \"" & buildDir & "\" " & LevelDbCMakeFlags
   echo "\nBuilding LevelDB: " & cmd
   let (output, exitCode) = gorgeEx cmd
   if exitCode != 0:
