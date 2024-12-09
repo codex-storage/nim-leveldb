@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.6"
+version       = "0.2.0"
 author        = "leveldbstatic authors"
 description   = "Statically linked LevelDB wrapper for Nim"
 license       = "MIT"
