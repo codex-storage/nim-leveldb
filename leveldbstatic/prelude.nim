@@ -9,7 +9,7 @@ const
     when defined(macosx):
       "-DCMAKE_BUILD_TYPE=Release"
     elif defined(windows):
-      "-G\"MSYS Makefiles\" -DCMAKE_BUILD_TYPE=Release"
+      "-G\"MSYS Makefiles\" -DCMAKE_BUILD_TYPE=Release -DHAVE_STD_REGEX=ON -DRUN_HAVE_STD_REGEX=1"
     else:
       "-DCMAKE_BUILD_TYPE=Release"
   
