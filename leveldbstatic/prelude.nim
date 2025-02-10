@@ -7,11 +7,11 @@ const
 
   LevelDbCMakeFlags {.strdefine.} =
     when defined(macosx):
-      "-DCMAKE_BUILD_TYPE=Release"
+      "-DCMAKE_BUILD_TYPE=Release -DLEVELDB_BUILD_BENCHMARKS=OFF"
     elif defined(windows):
-      "-G\"MSYS Makefiles\" -DCMAKE_BUILD_TYPE=Release"
+      "-G\"MSYS Makefiles\" -DCMAKE_BUILD_TYPE=Release -DLEVELDB_BUILD_BENCHMARKS=OFF"
     else:
-      "-DCMAKE_BUILD_TYPE=Release"
+      "-DCMAKE_BUILD_TYPE=Release -DLEVELDB_BUILD_BENCHMARKS=OFF"
   
   LevelDbDir {.strdefine.} = $(root/"vendor")
   buildDir = $(root/"build")
