@@ -12,7 +12,9 @@ const
       "-G\"MSYS Makefiles\" -DCMAKE_BUILD_TYPE=Release -DLEVELDB_BUILD_BENCHMARKS=OFF"
     else:
       "-DCMAKE_BUILD_TYPE=Release -DLEVELDB_BUILD_BENCHMARKS=OFF"
-  
+
+  LevelDbCMakeCommonFlags = " -DCMAKE_POLICY_VERSION_MINIMUM=3.31"
+
   LevelDbDir {.strdefine.} = $(root/"vendor")
   buildDir = $(root/"build")
 
@@ -29,7 +31,7 @@ proc buildLevelDb() =
   discard gorge "rm -rf " & buildDir
   discard gorge "mkdir -p " & buildDir
 
-  let cmd = "cmake -S \"" & LevelDbDir & "\" -B \"" & buildDir & "\" " & LevelDbCMakeFlags
+  let cmd = "cmake -S \"" & LevelDbDir & "\" -B \"" & buildDir & "\" " & LevelDbCMakeFlags & LevelDbCMakeCommonFlags
   echo "\nBuilding LevelDB: " & cmd
   let (output, exitCode) = gorgeEx cmd
   if exitCode != 0:
